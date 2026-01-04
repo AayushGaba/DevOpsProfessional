@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zendrix-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zendrix
+  template:
+    metadata:
+      labels:
+        app: zendrix
+    spec:
+      containers:
+      - name: zendrix
+        image: zendrixcorp/devops-app:latest
+        ports:
+        - containerPort: 80
